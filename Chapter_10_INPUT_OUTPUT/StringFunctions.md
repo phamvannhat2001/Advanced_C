@@ -1,4 +1,4 @@
-##﻿ GETLINE
+### GETLINE
 
 - The latest function for reading a string of text if getline(): having appeared around 2010 or so
 - The getline function is the preferred method for reading lines of text from a stream (including standard input)
@@ -21,7 +21,7 @@
 - Giá trị trả về của hàm **getline** là số lượng ký tự đã đọc, bao gồm cả ký tự newline ('\n') nhưng không phải ký tự NULL cuối cùng. Nếu đọc thành công, giá trị trả về là số lượng ký tự đã đọc. Nếu không có dữ liệu nào được đọc hoặc có lỗi xảy ra, giá trị trả về là -1.
 
 Example: 
-'''c
+```c
 #define _CRT_SECURE_NO_WARNINGS
 
 # include <stdio.h>
@@ -61,7 +61,7 @@ printf("You typed: '%s' \n", buffer);
 return 0;
 
 }
-'''
+```
 
 ## PUTS 
 

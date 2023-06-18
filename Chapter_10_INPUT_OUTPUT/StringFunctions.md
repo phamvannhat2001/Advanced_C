@@ -1,4 +1,4 @@
-﻿GETLINE
+##﻿GETLINE
 
 - The latest function for reading a string of text if getline(): having appeared around 2010 or so
 - The getline function is the preferred method for reading lines of text from a stream (including standard input)
@@ -61,7 +61,7 @@ int main()
 
 }
 
-PUTS 
+##PUTS 
 
 - The puts() function is used to write a line to the output screen
 
@@ -92,7 +92,7 @@ int main()
 
 }
 
-FPUTS
+##FPUTS
 
 Hàm fputs trong ngôn ngữ lập trình C được sử dụng để ghi một chuỗi ký tự vào một luồng (stream) cụ thể.
 

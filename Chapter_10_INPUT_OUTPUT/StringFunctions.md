@@ -1,4 +1,4 @@
-##﻿GETLINE
+##﻿ GETLINE
 
 - The latest function for reading a string of text if getline(): having appeared around 2010 or so
 - The getline function is the preferred method for reading lines of text from a stream (including standard input)
@@ -21,47 +21,49 @@
 - Giá trị trả về của hàm **getline** là số lượng ký tự đã đọc, bao gồm cả ký tự newline ('\n') nhưng không phải ký tự NULL cuối cùng. Nếu đọc thành công, giá trị trả về là số lượng ký tự đã đọc. Nếu không có dữ liệu nào được đọc hoặc có lỗi xảy ra, giá trị trả về là -1.
 
 Example: 
-#define \_CRT\_SECURE\_NO\_WARNINGS
+'''c
+#define _CRT_SECURE_NO_WARNINGS
 
-\# include <stdio.h>
+# include <stdio.h>
 
-\# include <string.h>
+# include <string.h>
 
-\# include <stdlib.h>
+# include <stdlib.h>
 
 int main()
 
 {
 
-`	`char\* buffer = NULL;
+char* buffer = NULL;
 
-`	`size\_t bufsize = 32;
+size_t bufsize = 32;
 
-`	`size\_t characters;
+size\_t characters;
 
-`	`buffer = (char\*)malloc(bufsize \* sizeof(char));
+buffer = (char\*)malloc(bufsize \* sizeof(char));
 
-`	`if (buffer == NULL)
+if (buffer == NULL)
 
-`	`{
+{
 
-`		`exit(1);
-
-`	`}
-
-`	`printf("Type something: ");
-
-`	`characters = getline(&buffer, &bufsize, stdin);
-
-`	`printf("%zu characters were read. \n", characters);
-
-`	`printf("You typed: '%s' \n", buffer);
-
-`	`return 0;
+exit(1);
 
 }
 
-##PUTS 
+printf("Type something: ");
+
+characters = getline(&buffer, &bufsize, stdin);
+
+printf("%zu characters were read. \n", characters);
+
+printf("You typed: '%s' \n", buffer);
+
+return 0;
+
+}
+'''
+
+## PUTS 
 
 - The puts() function is used to write a line to the output screen
 
@@ -92,7 +94,7 @@ int main()
 
 }
 
-##FPUTS
+## FPUTS
 
 Hàm fputs trong ngôn ngữ lập trình C được sử dụng để ghi một chuỗi ký tự vào một luồng (stream) cụ thể.
 

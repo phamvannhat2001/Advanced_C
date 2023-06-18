@@ -1,4 +1,4 @@
-### GETLINE
+## GETLINE
 
 - The latest function for reading a string of text if getline(): having appeared around 2010 or so
 - The getline function is the preferred method for reading lines of text from a stream (including standard input)
@@ -72,27 +72,28 @@ return 0;
 - Form : int puts(const char \* string)
 
 Example :
-#define \_CRT\_SECURE\_NO\_WARNINGS
+```c
+#define _CRT_SECURE_NO_WARNINGS
 
-\# include <stdio.h>
+# include <stdio.h>
 
-\# include <string.h>
+# include <string.h>
 
-\# include <stdlib.h>
+# include <stdlib.h>
 
 int main()
 
 {
 
-`	`char string[40];
+char string[40];
 
-`	`strcpy(string, "Hello");
+strcpy(string, "Hello");
 
-`	`puts(string);
+puts(string);
 
-`	`return 0;
-
+return 0;
 }
+```
 
 ## FPUTS
 

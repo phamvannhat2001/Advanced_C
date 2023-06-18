@@ -5,7 +5,7 @@
 
 cCopy code
 
-char \*strchr(const char \*str, int c); 
+'char *strchr(const char *str, int c); '
 
 - **str** là con trỏ tới chuỗi ký tự cần tìm trong.
 - **c** là giá trị của ký tự cần tìm (ở đây là **'\n'**).

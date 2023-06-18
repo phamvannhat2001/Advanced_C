@@ -111,40 +111,37 @@ Trong đó:
 Hàm fputs sẽ ghi chuỗi ký tự str vào luồng stream cho đến khi gặp ký tự null ('\0'). Nếu ghi thành công, hàm sẽ trả về non-negative, nếu không, nó sẽ trả về EOF và đặt lỗi (errno) tương ứng.
 
 Dưới đây là một ví dụ minh họa về cách sử dụng hàm fputs:
-
+```c
 #include <stdio.h>
 
 int main() {
 
-`    `const char \*str = "Hello, World!";
+const char \*str = "Hello, World!";
 
-`    `FILE \*file = fopen("output.txt", "w");
+FILE \*file = fopen("output.txt", "w");
 
-`    `if (file != NULL) {
+if (file != NULL) {
 
-`        `if (fputs(str, file) != EOF) {
+if (fputs(str, file) != EOF) {
 
-`            `printf("Write to file successful.\n");
+printf("Write to file successful.\n");
 
-`        `} else {
+} else {
 
-`            `printf("Error writing to file.\n");
-
-`        `}
-
-`        `fclose(file);
-
-`    `} else {
-
-`        `printf("Error opening file.\n");
-
-`    `}
-
-
-
-`    `return 0;
+printf("Error writing to file.\n");
 
 }
+
+fclose(file);
+
+} else {
+
+printf("Error opening file.\n");
+
+}
+return 0;
+}
+```
 
 Trong ví dụ này, chúng ta ghi chuỗi "Hello, World!" vào một tệp tin có tên "output.txt". Trước khi ghi, chúng ta kiểm tra xem liệu tệp tin có mở thành công không. Sau khi ghi xong, chúng ta đóng tệp tin bằng hàm fclose.
 

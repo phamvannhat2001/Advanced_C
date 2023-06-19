@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 //Mang 1 chieu
 void printValueFrequency(int* arr, int size);
 void swap(int* ptr1, int* ptr2);
@@ -12,4 +11,6 @@ void swapcolumns(int** a, int column1, int column2, int totalRow);
 void swaprows(void** a, int row_1, int row_2);
 int** allocate2Dmatrix(unsigned rows, unsigned columns);
 void print2Dmatrix(int** matrix, unsigned rows, unsigned columns);
+void allocate2Dmatric(int*** a, int rows, int columns);
 void freeMatrix(int** a, int rows);
+

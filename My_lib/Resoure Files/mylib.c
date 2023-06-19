@@ -157,6 +157,43 @@ int** allocate2Dmatrix(unsigned rows, unsigned columns)
     return a;
 }
 
+void allocate2Dmatric(char*** a, int rows, int columns)
+{
+    int** myMat;
+    int i;
+    myMat = (char**)malloc(rows * sizeof(char*));
+    if (myMat == NULL) {
+        printf("Memory allocation failed.\n");
+        return 1;
+    }
+    for (int i = 0; i < rows; i++) {
+        myMat[i] = (char*)malloc(columns * sizeof(char));
+
+        if (myMat[i] == NULL) {
+            printf("Memory allocation failed.\n");
+
+            for (int j = 0; j < i; j++) {
+                free(myMat[j]);
+            }
+            free(myMat);
+            return 1;
+        }
+    }
+
+    //Nhap gia tri
+    printf("Enter lines of text:\n");
+    for (int i = 0; i < rows; i++) {
+        fgets(myMat[i], columns, stdin);
+    }
+
+    //In gia tri
+
+    printf("You entered:\n");
+    for (int i = 0; i < rows; i++) {
+        fputs(myMat[i], stdout);
+    }
+}
+
 void print2Dmatrix(int** matrix, unsigned rows, unsigned columns)
 {
     int** a = matrix;

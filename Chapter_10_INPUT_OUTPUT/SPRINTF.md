@@ -58,7 +58,7 @@ Form: int fscanf( FILE\*fp, const char \*format [,argument,..]);
 - Returns the number of arguments that are successfully read and assigned
 - Returns the value EOF, if the end of the file is reached before any of the conversion specifications have been processed
 - Fscanf(myFile, “%i”,&i);
-  ```c
+ ```c
 #include <stdio.h>
 
 int main() {
@@ -123,6 +123,7 @@ Age: 25
 USING FSCANF VS FGETS/SSCANF
 
 - If you use fgets + sscanf, you must enter both values on the same line
+
 ```c
 #include <stdio.h>
 

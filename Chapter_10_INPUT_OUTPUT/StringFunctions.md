@@ -1,3 +1,26 @@
+## FGETS
+
+- Fgets is used for reading entire lines of data from a file/stream ( file get string)
+- Form : char \*fgets(char \*buffer, int n, FILE \*stream)
+
+\+ buffer is a pointer to a character array where the line that is read in will be stored
+
+\+ n is a interger value that represents the maximum number of characters to be stored into buffer, including the null character
+
+\+ stream is the poiter to object that identifies the stream where characters are read from
+
+- Reads characters from the specified file until a newline character has been read or until n-1 characters have been read
+
+\+ a null character is written inmediately after the last character read into the array
+
+\+ returns the value of buffer if the read is successful
+
+\+ returns the value NULL if an error
+
+- ` `*the fgets() function retains the newline character* (unlike gets)
+- It is possible to read a partial line when using fgets ( nếu viết dài sẽ tràn, giữ lại phần đúng với kích thước)
+- The fgets function protects against overflowing the string and creating a security hazard
+
 ## GETLINE
 
 - The latest function for reading a string of text if getline(): having appeared around 2010 or so

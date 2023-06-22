@@ -44,7 +44,7 @@ Variadic là thuộc tính của một hàm hoặc một macro trong ngôn ngữ
 
 Example: Inline static void foo()
 
-\_NORETURN\_FUNCTION
+## \_NORETURN\_FUNCTION
 
 - C11 added a second function specifier ( in addition to inline) named\_ Noreturn
 - The purpose of this specifier is to inform the user and the compiler that a particular function will not return control to the calling program when it completes execution 

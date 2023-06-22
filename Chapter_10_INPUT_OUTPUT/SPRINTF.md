@@ -1,4 +1,4 @@
-﻿**SPRINTF**
+## SPRINTF
 
 - The sprint() function is used to write formatted output to a string
 - When using sprintf, you can combine several data variable into a character array
@@ -14,7 +14,7 @@
 - Overflows can cause unexpected results
 
 Example:
-
+```c
 #include <stdio.h>
 
 int main()
@@ -30,8 +30,9 @@ int main()
 `    `return 0;
 
 }
+```
 
-FPRINTF
+## FPRINTF
 
 - Fprintf is provided to perform the same operation as printf, but on a file
 - Form : int fprintf(FILE \* stream, const char\*format,…)
@@ -46,7 +47,7 @@ If(inFile= fopen (“data”,”r”))=NULL)
 
 `	`Fprintf(stderr, “Can’t open data for reading.\n);
 
-FSCANF
+## FSCANF
 
 - Fscanf is provided to perform the same operations as the scanf function, but on a file
 
@@ -57,7 +58,7 @@ Form: int fscanf( FILE\*fp, const char \*format [,argument,..]);
 - Returns the number of arguments that are successfully read and assigned
 - Returns the value EOF, if the end of the file is reached before any of the conversion specifications have been processed
 - Fscanf(myFile, “%i”,&i);
-
+ ```c
 #include <stdio.h>
 
 int main() {
@@ -91,14 +92,15 @@ int main() {
 `    `return 0;
 
 }
+```
 
-SSCANF
+## SCANF
 
 - Hàm sscanf trong ngôn ngữ lập trình C được sử dụng để đọc dữ liệu từ một chuỗi và lưu trữ các giá trị được đọc vào các biến đã cho. Đây là một hàm định dạng, tương tự như scanf, nhưng thay vì đọc từ luồng nhập chuẩn (stdin), sscanf đọc từ một chuỗi đã cho.
 - Form: int sscanf(const char\* str, const char\* format, ...); 
 - Kết quả trả về của hàm sscanf là số lượng các giá trị đã được đọc và lưu trữ thành công và -1 nếu lỗi
 - Example: 
-
+```c
 const char\* str = "John Doe 25";
 
 char name[50];
@@ -110,6 +112,7 @@ sscanf(str, "%s %s %d", name, age);
 printf("Name: %s\n", name);
 
 printf("Age: %d\n", age);
+```
 
 Kết quả: 
 
@@ -121,6 +124,7 @@ USING FSCANF VS FGETS/SSCANF
 
 - If you use fgets + sscanf, you must enter both values on the same line
 
+```c
 #include <stdio.h>
 
 #include <stdlib.h>
@@ -154,8 +158,9 @@ int main() {
 `    `return 0;
 
 }
+```
 
-FFLUSH
+## FFLUSH
 
 - Hàm fflush được sử dụng để đẩy (flush) dữ liệu từ bộ đệm (buffer) của một luồng dữ liệu ra thiết bị hoặc tập tin tương ứng.
 - Form: int fflush(FILE \*stream);

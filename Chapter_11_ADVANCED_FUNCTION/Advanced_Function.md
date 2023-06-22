@@ -1,4 +1,4 @@
-﻿Variadic
+## ﻿Variadic
 
 Variadic là thuộc tính của một hàm hoặc một macro trong ngôn ngữ lập trình, cho phép chúng có số lượng đối số không xác định hoặc có thể thay đổi trong quá trình gọi.
 
@@ -29,7 +29,7 @@ Variadic là thuộc tính của một hàm hoặc một macro trong ngôn ngữ
 - Trong đó, dest là biến va\_list đích mà bạn muốn sao chép danh sách đối số vào, và src là biến va\_list nguồn từ danh sách đối số sẽ được sao chép.
 - Việc sử dụng va\_copy() hữu ích khi bạn muốn duy trì một bản sao của danh sách đối số ban đầu để sử dụng lại trong quá trình truy cập danh sách đối số.
 
-INLINE
+## INLINE
 
 - Normally, a function call has overhead when being invoked
 
@@ -54,7 +54,7 @@ Example: Inline static void foo()
 - Ví dụ, hàm exit() là một hàm không trả về, vì sau khi nó được gọi, chương trình kết thúc và không trở lại vị trí gọi hàm.
 - Ví dụ : 
 
-’’’c
+``` c
 
 #include <stdio.h>
 
@@ -79,5 +79,4 @@ int main() {
 `    `return 0;
 
 }
-
-‘’’
+``` 

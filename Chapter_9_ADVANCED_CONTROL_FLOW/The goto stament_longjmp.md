@@ -8,22 +8,21 @@ Example:
 
 int main() {
 
-`    `int i = 0;
+      int i = 0;
 
 loop:
 
-`    `printf("i = %d\n", i);
+      printf("i = %d\n", i);
 
-`    `i++;
+     i++;
 
-`    `if (i < 5) {
+     if (i < 5) {
 
-`        `goto loop;  // Nhảy tới nhãn 'loop'
+          goto loop;  // Nhảy tới nhãn 'loop'
 
-`    `}
+     }
 
-`    `return 0;
-
+     return 0;
 }
 ```
 
@@ -50,31 +49,27 @@ jmp\_buf env;
 
 void foo() {
 
-`    `printf("Entering foo()\n");
+      printf("Entering foo()\n");
 
-`    `longjmp(env, 1);  // Nhảy đến điểm đã được định nghĩa bởi setjmp, với giá trị trả về 1
+      longjmp(env, 1);  // Nhảy đến điểm đã được định nghĩa bởi setjmp, với giá trị trả về 1
 
-`    `printf("This line will not be executed\n");
+      printf("This line will not be executed\n");
 
 }
 
 int main() {
 
-`    `if (setjmp(env) == 0) {
+      if (setjmp(env) == 0) {
 
-`        `printf("Calling foo()\n");
+        printf("Calling foo()\n");
+        foo();
 
-`        `foo();
+    } else {
 
-`    `} else {
-
-`        `printf("Returning from longjmp\n");
-
-`    `}
-```
-
-`    `return 0;
-
+`printf("Returning from longjmp\n");
+    }
+    return 0;
 }
+```
 
 - A goto can’t jump out of the current function in C; longjmp can jump a long way away, even to a function in a different file

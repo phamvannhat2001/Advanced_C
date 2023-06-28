@@ -3,7 +3,7 @@
 - A goto stament causes program control to jump to a particular of code in your program
 
 Example: 
-
+```c 
 #include <stdio.h>
 
 int main() {
@@ -25,6 +25,7 @@ loop:
 `    `return 0;
 
 }
+```
 
 - Làm gián đoạn dòng chảy chương trình làm cho khó theo dõi
 
@@ -40,7 +41,7 @@ Use the variable j to remember where you are now
 - jmp\_buf env là một kiểu dữ liệu đặc biệt, thường được định nghĩa là một mảng của các kiểu dữ liệu cần thiết để lưu trữ thông tin về trạng thái của chương trình.
 - int val là giá trị trả về của lệnh longjmp.
 - **Example** 
-
+```c
 #include <stdio.h>
 
 #include <setjmp.h>
@@ -70,6 +71,7 @@ int main() {
 `        `printf("Returning from longjmp\n");
 
 `    `}
+```
 
 `    `return 0;
 

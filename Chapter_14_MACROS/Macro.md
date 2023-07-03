@@ -4,13 +4,11 @@
 - #define MACRO macro\_body
 
 Example:
-
+```c
 #define PRNT(a,b) \
-
-`	`Printf(“value 1= &d\n”,a); \
-
-`               `Printf(“value 2 = %d\n”,b);
-
+	Printf(“value 1= &d\n”,a); \
+  Printf(“value 2 = %d\n”,b);
+```
 **So sánh macro và inline**
 
 - Giống nhau:

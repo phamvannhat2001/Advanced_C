@@ -82,27 +82,23 @@ Inline có tính khả thi phụ thuộc vào trình biên dịch, và trình bi
 
 Example: 
 
-’’’c
-
+```c
 #include <stdio.h>
-
 #define STR(x) #x
 
 int main() {
 
-`    `int num = 42;
+    int num = 42;
 
-`    `printf("%s\n", STR(num)); // Output: "num"
+    printf("%s\n", STR(num)); // Output: "num"
 
-`    `return 0;
+    return 0;
 
 }
-
-’’’
-
+```
 - Toán tử "##" trong macro được gọi là toán tử nối chuỗi (concatenation operator). Nó được sử dụng để nối các token lại với nhau trong macro. Toán tử này cho phép xây dựng các biểu thức phức tạp hơn bằng cách kết hợp các token thành một token duy nhất.
 
-’’’c
+```c
 
 #include <stdio.h>
 
@@ -110,20 +106,18 @@ int main() {
 
 int main() {
 
-`    `int num1 = 4;
+    int num1 = 4;
 
-`    `int num2 = 2;
+    int num2 = 2;
 
-`    `int result = CONCAT(num, 1) + CONCAT(num, 2);
+    int result = CONCAT(num, 1) + CONCAT(num, 2);
 
-`    `printf("%d\n", result); // Output: 42
+    printf("%d\n", result); // Output: 42
 
-`    `return 0;
+    return 0;
 
 }
-
-’’’
-
+```
 **Predefined macro**
 
 Các macro chuẩn (Standard Macros):

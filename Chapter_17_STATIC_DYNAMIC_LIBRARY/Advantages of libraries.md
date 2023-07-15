@@ -96,61 +96,58 @@ Sau khi thư viện chia sẻ đã được mở bằng dlopen(), chúng ta có 
 - Sau khi lấy được con trỏ tới hàm hoặc biến bằng dlsym(), bạn có thể sử dụng con trỏ đó để gọi hàm hoặc truy cập biến tương ứng trong thư viện.
 
 Example:
-
+```c
 #include <stdio.h>
 
 #include <dlfcn.h>
 
 int main() {
 
-`    `void\* library\_handle;
+    void\* library\_handle;
 
-`    `void (\*function\_ptr)(void);
-
-
-
-`    `// Mở thư viện
-
-`    `library\_handle = dlopen("mylibrary.so", RTLD\_LAZY);
-
-`    `if (library\_handle == NULL) {
-
-`        `fprintf(stderr, "Khong the mo thu vien: %s\n", dlerror());
-
-`        `return 1;
-
-`    `}
+    void (\*function\_ptr)(void);
 
 
 
-`    `// Lấy con trỏ tới hàm trong thư viện
+    // Mở thư viện
 
-`    `function\_ptr = dlsym(library\_handle, "my\_function");
+    library\_handle = dlopen("mylibrary.so", RTLD\_LAZY);
 
-`    `if (function\_ptr == NULL) {
+    if (library\_handle == NULL) {
 
-`        `fprintf(stderr, "Khong the tim thay ham: %s\n", dlerror());
+        fprintf(stderr, "Khong the mo thu vien: %s\n", dlerror());
 
-`        `dlclose(library\_handle);
+        return 1;
 
-`        `return 1;
-
-`    `}
+    }
 
 
 
-`    `// Gọi hàm từ thư viện
+    // Lấy con trỏ tới hàm trong thư viện
 
-`    `(\*function\_ptr)();
+    function\_ptr = dlsym(library\_handle, "my\_function");
+
+    if (function\_ptr == NULL) {
+
+        fprintf(stderr, "Khong the tim thay ham: %s\n", dlerror());
+
+        dlclose(library\_handle);
+
+        return 1;
+
+    }
 
 
 
-`    `// Đóng thư viện
+    // Gọi hàm từ thư viện
 
-`    `dlclose(library\_handle);
+    (\*function\_ptr)();
 
+    // Đóng thư viện
 
+    dlclose(library\_handle);
 
-`    `return 0;
+    return 0;
 
 }
+```

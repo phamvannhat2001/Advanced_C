@@ -40,7 +40,7 @@ SIGCONT là một tín hiệu (signal) được sử dụng để tiếp tục t
 
 - SIGKILL: Tín hiệu được gửi bởi lệnh kill để yêu cầu một tiến trình dừng lại ngay lập tức và không thể bị xử lý hoặc bắt được.
 - Example: 
-
+```c
 #include <stdio.h>
 
 #include <signal.h>
@@ -64,6 +64,7 @@ int main() {
 `    `return 0;
 
 }
+```
 
 - Trong lập trình C/C++, hàm raise() và kill() được sử dụng để gửi tín hiệu (signal) đến một tiến trình hoặc một nhóm tiến trình. Dưới đây là giải thích về mỗi hàm:
 
@@ -95,7 +96,7 @@ Giá trị trả về: 0 nếu thành công, -1 nếu có lỗi.
 - Protype : unsigned int alarm(unsigned int seconds);
 
 - Example: 
-
+```c
 #include <stdio.h>
 
 #include <windows.h>
@@ -131,6 +132,7 @@ int main() {
 `    `return 0;
 
 }
+```
 
 - Trong lập trình, việc handling và catching một tín hiệu (signal) đều liên quan đến việc xử lý các sự kiện hoặc tình huống đặc biệt xảy ra trong quá trình chạy của một chương trình.
 

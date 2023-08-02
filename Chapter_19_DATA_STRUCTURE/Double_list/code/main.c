@@ -7,7 +7,10 @@
 
 int main()
 {
+    FILE* fp = NULL;
     D_NODE* head = NULL;
+    //take_data(&head,&fp);
+    
 
     // Function pointers for add and delete operations
     void (*add[3])(D_NODE**);
@@ -34,6 +37,11 @@ int main()
         printf("Delete data       3\n");
         printf("Adjust            4\n");
         printf("Sort data         5\n");
+        printf("Open data         6\n");
+        printf("Save data         7\n");
+        printf("Save as data      8\n");
+        printf("Search name       9\n");
+        printf("Count same name   10\n");
         printf("Exit              0\n");
         printf("-------------------\n");
         printf("Please choose an option: ");
@@ -95,8 +103,20 @@ int main()
             sort_name(&head);
              break;
         case 6:
-            swap_nodes(&head, (head->next), (head->next->next));
+            take_data(&head, &fp);
             break;
+        case 7:
+            export_data(&head, &fp);
+            break;
+        case 8:
+            export_data_as(&head, &fp);
+            break;
+        case 9:
+            search_name(&head);
+            break;
+        case 10:
+            same_name(&head);
+            break;            
         case 0:
             exit(EXIT_SUCCESS);
             break;

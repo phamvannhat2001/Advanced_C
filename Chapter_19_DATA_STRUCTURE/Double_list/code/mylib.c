@@ -181,10 +181,10 @@ void print_data(D_NODE* head)
         return;
     }
 
-    printf("NO\tID\t\tNAME\t\tMARKS\n");
+    printf("%-10s %-10s %-10s %-10s\n","NO","ID","NAME","MARKS");
     while (ptr != NULL)
     {
-        printf("%d\t%d\t\t%s\t\t%d\n", count, ptr->ID, ptr->name, ptr->mark);
+        printf("%-10d %-10d %-10s %-10d\n", count, ptr->ID, ptr->name, ptr->mark);
         ptr = ptr->next;
         count++;
     }
@@ -439,6 +439,183 @@ void sort_name(D_NODE** head)
     system("cls");
     printf("Sorted!\n");
 }
+
+
+void take_data(D_NODE** head, FILE** fp) {
+    char line[100];
+    int num1, num2;
+    char str[50];
+    char filePath[100];
+
+    printf("Enter filePath: ");
+    scanf("%s", filePath);
+    *fp = fopen(filePath, "r");
+    if (*fp == NULL) {
+        fprintf(stderr, "Invalid file pointer.\n");
+        return;
+    }
+
+    if (*head == NULL)
+    {
+        while (fgets(line, sizeof(line), *fp) != NULL) {
+            if (sscanf(line, "%d %s %d", &num1, str, &num2) == 3) {
+                if (*head == NULL) {
+                    *head = (D_NODE*)malloc(sizeof(D_NODE));
+                    (*head)->prev = NULL;
+                    (*head)->next = NULL;
+                    (*head)->ID = num1;
+                    strcpy((*head)->name, str);
+                    (*head)->mark = num2;
+
+                }
+                else {
+                    D_NODE* ptr = *head;
+                    D_NODE* temp = (D_NODE*)malloc(sizeof(D_NODE));
+                    temp->prev = NULL;
+                    temp->next = NULL;
+                    temp->ID = num1;
+                    strcpy(temp->name, str);
+                    temp->mark = num2;
+
+                    while (ptr->next != NULL) {
+                        ptr = ptr->next;
+                    }
+                    ptr->next = temp;
+                    temp->prev = ptr;
+                }
+            }
+            else {
+                printf("Error reading line: %s\n", line);
+            }
+        }
+    }
+
+    fclose(*fp);
+}
+
+void export_data(D_NODE** head, FILE** fp) {
+    D_NODE* ptr = *head;
+    *fp = fopen("data.txt", "w+");
+
+    if (*fp == NULL) {
+        fprintf(stderr, "Invalid file pointer.\n");
+        return;
+    }
+
+    if (*head == NULL) {
+        printf("Linked list is empty\n");
+        fclose(fp);
+        return;
+    }
+    
+    while (ptr != NULL) {
+        
+        fprintf(*fp, "%-10d%-10s%-10d\n", ptr->ID, ptr->name, ptr->mark);
+        ptr = ptr->next;
+       
+    }
+
+    printf("Exported!\n");
+    fclose(*fp);
+    
+}
+
+void export_data_as(D_NODE** head, FILE** fp) {
+    D_NODE* ptr = *head;
+    char filePath[100];
+
+    printf("Enter filePath: ");
+    scanf("%s", filePath);
+    *fp = fopen(filePath, "a+");
+
+
+    if (*head == NULL) {
+        printf("Linked list is empty\n");
+        fclose(fp);
+        return;
+    }
+
+    while (ptr != NULL) {
+
+        fprintf(*fp, "%-10d%-10s%-10d\n", ptr->ID, ptr->name, ptr->mark);
+        ptr = ptr->next;
+
+    }
+
+    printf("Exported!\n");
+    fclose(*fp);
+
+}
+
+void search_name(D_NODE** head)
+{
+    char name[10];
+    printf("Enter name to search: ");
+    scanf("%s", &name);
+    printf("\n");
+
+    D_NODE* ptr = *head;
+    int count = 1;
+    printf("%-10s %-10s %-10s %-10s\n", "NO", "ID", "NAME", "MARKS");
+    while (ptr != NULL)
+    {
+        if (strcmp(name, ptr->name) != 1)
+        {
+            printf("%-10d %-10d %-10s %-10d\n", count, ptr->ID, ptr->name, ptr->mark);
+            count++;
+        }
+        ptr = ptr->next;
+    }
+   
+}
+
+void same_name(D_NODE** head) {
+    if (*head == NULL) {
+        printf("Danh sach rong.\n");
+        return;
+    }
+
+    
+    D_NODE* current = *head;
+    int count = 0;
+    char printedNames[50][50] = { 0 }; 
+
+    while (current != NULL) {
+        int found = 0;
+        for (int i = 0; i < count; i++) {
+            if (strcmp(current->name, printedNames[i]) == 0) {
+                found = 1;
+                break;
+            }
+        }
+
+        if (!found) {
+            int nameLength = strlen(current->name);
+            strncpy(printedNames[count], current->name, nameLength);
+            printedNames[count][nameLength] = '\0';
+
+            D_NODE* ptr = *head;
+            int nameCount = 0;
+
+            while (ptr != NULL) {
+                if (strcmp(ptr->name, current->name) == 0) {
+                    nameCount++;
+                }
+                ptr = ptr->next;
+            }
+
+            printf("%s %d\n", current->name, nameCount);
+            count++;
+        }
+
+        current = current->next;
+    }
+}
+
+
+
+
+
 
 
 
